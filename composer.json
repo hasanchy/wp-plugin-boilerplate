@@ -1,0 +1,28 @@
+{
+    "description": "A WordPress plugin that allows users to draw and display pixel art on their website.",
+    "license": "GPL-3.0-or-later",
+    "config": {
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Hasan Chowdhury"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "WPPLUGBP\\": [
+                "inc/"
+            ]
+        },
+        "classmap": ["core/", "app/"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WPPLUGBP\\Test\\": [
+                "test/phpunit/"
+            ]
+        }
+    }
+}
