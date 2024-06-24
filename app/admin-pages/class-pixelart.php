@@ -124,8 +124,8 @@ class PixelArt extends Base {
 		}
 
 		$handle       = 'wpplugbp_pixelart';
-		$src          = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/main.js';
-		$style_src    = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/style-main.css';
+		$src          = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/js/pixelartpage.min.js';
+		$style_src    = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/css/pixelartpage.min.css';
 		$dependencies = ! empty( $this->script_data( 'dependencies' ) )
 			? $this->script_data( 'dependencies' )
 			: array(
@@ -174,8 +174,8 @@ class PixelArt extends Base {
 	protected function raw_script_data(): array {
 		static $script_data = null;
 
-		if ( is_null( $script_data ) && file_exists( WPPLUGBP_PLUGINTEST_DIR . 'build/main.asset.php' ) ) {
-			$script_data = include WPPLUGBP_PLUGINTEST_DIR . 'build/main.asset.php';
+		if ( is_null( $script_data ) && file_exists( WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php' ) ) {
+			$script_data = include WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php';
 		}
 
 		return (array) $script_data;

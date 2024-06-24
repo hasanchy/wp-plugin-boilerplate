@@ -4,8 +4,8 @@
 	"description": "A WordPress plugin that allows users to draw and display pixel art on their website.",
 	"main": "index.js",
 	"scripts": {
-		"build": "wp-scripts build src/pixelart-page/main.js",
-		"start": "wp-scripts start src/pixelart-page/main.js --hot"
+		"build": "cross-env NODE_ENV=production wp-scripts build src/pixelart-page/main.jsx",
+		"start": "cross-env NODE_ENV=development wp-scripts start src/pixelart-page/main.jsx --hot"
 	},
 	"repository": {
 		"type": "git",
@@ -26,6 +26,7 @@
 		"react-redux": "^8.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^25.3.0"
+		"@wordpress/scripts": "^25.3.0",
+		"cross-env": "^7.0.3"
 	}
 }

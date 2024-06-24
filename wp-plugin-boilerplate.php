@@ -73,7 +73,7 @@ if ( ! defined( 'WPPLUGBP_PLUGINTEST_URL' ) ) {
 
 // Assets url.
 if ( ! defined( 'WPPLUGBP_PLUGINTEST_ASSETS_URL' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_ASSETS_URL', WPPLUGBP_PLUGINTEST_URL . '/build' );
+	define( 'WPPLUGBP_PLUGINTEST_ASSETS_URL', WPPLUGBP_PLUGINTEST_URL . '/assets' );
 }
 
 // Shared UI Version.
