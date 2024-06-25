@@ -93,7 +93,7 @@ class PixelArt extends Base {
 	public function register_admin_page() {
 		$page = add_menu_page(
 			$this->page_title,
-			'WP - Pixel Art',
+			__( 'WP - Pixel Art', 'wp-plugin-boilerplate' ),
 			'manage_options',
 			$this->page_slug,
 			array( $this, 'callback' ),
@@ -143,12 +143,9 @@ class PixelArt extends Base {
 			'ver'       => $this->assets_version,
 			'strategy'  => true,
 			'localize'  => array(
-				'dom_element_id'   		=> $this->unique_id,
-				'clientID'         		=> 'clientID',
-				'clientSecret'     		=> 'clientSecret',
-				'redirectUrl'      		=> 'redirectUrl',
-				'restEndpointSettings' 	=> home_url( '/wp-json' ) . '/wp-plugin-boilerplate/v1/settings',
-				'restNonce'        		=> wp_create_nonce( 'wp_rest' ),
+				'dom_element_id'       => $this->unique_id,
+				'restEndpointSettings' => home_url( '/wp-json' ) . '/wp-plugin-boilerplate/v1/settings',
+				'restNonce'            => wp_create_nonce( 'wp_rest' ),
 			),
 		);
 	}
@@ -203,9 +200,12 @@ class PixelArt extends Base {
 
 				wp_enqueue_script( $handle );
 
+				
 				if ( ! empty( $page_script['style_src'] ) ) {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}
+
+				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_PATH . '/languages' );
 			}
 		}
 	}

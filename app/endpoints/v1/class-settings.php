@@ -46,33 +46,33 @@ class Settings extends Endpoint {
 			$this->get_endpoint(),
 			array(
 				array(
-					'methods' => 'GET',
-					'callback' => array(
+					'methods'             => 'GET',
+					'callback'            => array(
 						$this,
-						'get_settings'
+						'get_settings',
 					),
 					'permission_callback' => array(
 						$this,
-						'edit_permission'
-					)
+						'edit_permission',
+					),
 				),
 				array(
-					'methods' => 'POST',
-					'args'    => array(
-						'data'     => array(
+					'methods'             => 'POST',
+					'args'                => array(
+						'data' => array(
 							'required'    => true,
 							'description' => __( 'The client ID from Google API project.', 'wpmudev-plugin-test' ),
-							'type'        => 'object'
-						)
+							'type'        => 'object',
+						),
 					),
-					'callback' => array(
+					'callback'            => array(
 						$this,
-						'save_settings'
+						'save_settings',
 					),
 					'permission_callback' => array(
 						$this,
-						'edit_permission'
-					)
+						'edit_permission',
+					),
 				),
 			)
 		);
@@ -84,19 +84,19 @@ class Settings extends Endpoint {
 	 *
 	 * @since 1.0.0
 	 */
-	public function get_settings(\WP_REST_Request $request) {
-		$nonce = $request->get_header('X-WP-NONCE');
-		if (!wp_verify_nonce($nonce, 'wp_rest')) {
-			return new WP_REST_Response('Invalid nonce', 403);
+	public function get_settings( \WP_REST_Request $request ) {
+		$nonce = $request->get_header( 'X-WP-NONCE' );
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_REST_Response( 'Invalid nonce', 403 );
 		}
 
 		$wpplugbp_pixel_data = get_option( 'wpplugbp_pixel_data' );
 
-        $response_data = [
-            'wpplugbp_pixel_data' => ($wpplugbp_pixel_data) ? unserialize( $wpplugbp_pixel_data ) : null
-        ];
+		$response_data = array(
+			'wpplugbp_pixel_data' => ( $wpplugbp_pixel_data ) ? unserialize( $wpplugbp_pixel_data ) : null,
+		);
 
-		return new \WP_REST_Response($response_data, 200);
+		return new \WP_REST_Response( $response_data, 200 );
 	}
 
 	/**
@@ -105,15 +105,15 @@ class Settings extends Endpoint {
 	 *
 	 * @since 1.0.0
 	 */
-	public function save_settings(\WP_REST_Request $request) {
-		$nonce = $request->get_header('X-WP-NONCE');
-		if (!wp_verify_nonce($nonce, 'wp_rest')) {
-			return new WP_REST_Response('Invalid nonce', 403);
+	public function save_settings( \WP_REST_Request $request ) {
+		$nonce = $request->get_header( 'X-WP-NONCE' );
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+			return new WP_REST_Response( 'Invalid nonce', 403 );
 		}
-		
-		$wpplugbp_pixel_data = serialize($request['data']);
-		update_option('wpplugbp_pixel_data', $wpplugbp_pixel_data );
 
-		return new \WP_REST_Response($response_data, 200);
+		$wpplugbp_pixel_data = serialize( $request['data'] );
+		update_option( 'wpplugbp_pixel_data', $wpplugbp_pixel_data );
+
+		return new \WP_REST_Response( $response_data, 200 );
 	}
 }

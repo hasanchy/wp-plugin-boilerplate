@@ -38,9 +38,8 @@ export const fetchPixelData = createAsyncThunk('settings/fetchPixelData', async 
 });
 
 export const savePixelData = createAsyncThunk('settings/savePixelData', async (data, {rejectWithValue}) => {
-	const settingsURL = `${wpplugbpPixelArt.restUrl}/wp-plugin-boilerplate/v1/settings`;
 	try{
-		const res = await axios.post(settingsURL, data, {
+		const res = await axios.post(wpplugbpPixelArt.restEndpointSettings, data, {
 			headers: {
 				'content-type': 'application/json',
 				'X-WP-NONCE': wpplugbpPixelArt.restNonce

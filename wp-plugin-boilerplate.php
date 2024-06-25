@@ -1,7 +1,7 @@
 <?php
 /**
  * Main file for WordPress.
- * 
+ *
  * @wordpress-plugin
  * Plugin Name:     WP Plugin Boilerplate
  * Description:     A WordPress plugin that allows users to draw and display pixel art on their website.
@@ -9,30 +9,30 @@
  * Author URI:      https://github.com/hasanchy
  * Version:         1.0.0
  * Text Domain:     wp-plugin-boilerplate
- * Domain Path:	    /languages
+ * Domain Path:     /languages
  *
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-defined('ABSPATH') or die('No direct access allowed!'); // Avoid direct file request
+defined( 'ABSPATH' ) or die( 'No direct access allowed!' ); // Avoid direct file request
 
 /**
  * Plugin constants. This file is procedural coding style for initialization of
  * the plugin core and definition of plugin configuration.
  */
-if (defined('WPPLUGBP_PATH')) {
-    require_once dirname(__FILE__) . '/inc/base/others/fallback-already.php';
-    return;
+if ( defined( 'WPPLUGBP_PATH' ) ) {
+	require_once __DIR__ . '/inc/base/others/fallback-already.php';
+	return;
 }
 
-define('WPPLUGBP_FILE', __FILE__);
-define('WPPLUGBP_PATH', dirname(WPPLUGBP_FILE));
-define('WPPLUGBP_SLUG', basename(WPPLUGBP_PATH));
-define('WPPLUGBP_INC', WPPLUGBP_PATH . '/inc/');
-define('WPPLUGBP_MIN_PHP', '7.2.0'); // Minimum of PHP 7.2 required for autoloading and namespacing
-define('WPPLUGBP_MIN_WP', '5.2.0'); // Minimum of WordPress 5.0 required
-define('WPPLUGBP_NS', 'WPPLUGBP');
+define( 'WPPLUGBP_FILE', __FILE__ );
+define( 'WPPLUGBP_PATH', dirname( WPPLUGBP_FILE ) );
+define( 'WPPLUGBP_SLUG', basename( WPPLUGBP_PATH ) );
+define( 'WPPLUGBP_INC', WPPLUGBP_PATH . '/inc/' );
+define( 'WPPLUGBP_MIN_PHP', '7.2.0' ); // Minimum of PHP 7.2 required for autoloading and namespacing
+define( 'WPPLUGBP_MIN_WP', '5.2.0' ); // Minimum of WordPress 5.0 required
+define( 'WPPLUGBP_NS', 'WPPLUGBP' );
 
 // Check PHP Version and print notice if minimum not reached, otherwise start the plugin core
 // require_once WPPLUGBP_INC .
