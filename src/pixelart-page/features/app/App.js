@@ -5,6 +5,7 @@ import ColorPicker from "../grid/ColorPicker";
 import { fetchPixelData, resetPixels, savePixelData } from "../grid/gridSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { __ } from '@wordpress/i18n';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const App = () => {
 
 	return (
 		<div className="wrap">
-			<h1 style={{ fontFamily: 'Trebuchet MS',fontWeight:500, fontSize: '35px', marginBottom: '15px' }}><span style={{ color: '#ffb61a' }}>WP Plugin</span><span style={{ color: '#674399' }}> Boilerplate</span></h1>
+			<h1 style={{ fontFamily: 'Trebuchet MS',fontWeight:500, fontSize: '35px', marginBottom: '15px' }}><span style={{ color: '#ffb61a' }}>WP Plugin</span><span style={{ color: '#674399' }}> { __( 'Boilerplate', 'wp-plugin-boilerplate' ) } </span> - { __( 'Pixel Art', 'wp-plugin-boilerplate' ) } </h1>
 			<ErrorBoundary fallback={<div>Something went wrong</div>}>
 				<Card>
 					<Row justify="center">

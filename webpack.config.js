@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
 	...defaultConfig,
 	entry: {
-		'pixelartpage': './src/pixelart-page/main.jsx'
+		'pixelartpage': './src/pixelart-page/main.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'assets/js'),

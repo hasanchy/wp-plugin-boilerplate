@@ -11,9 +11,6 @@ coverage
 # Built plugin folder and zip
 build
 
-# Languages dir ignored for now.
-/languages/
-
 # Packages
 vendor
 

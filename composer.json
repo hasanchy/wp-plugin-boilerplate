@@ -21,8 +21,8 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1"
     },
     "scripts": {
-        "phpcs": "phpcs --standard=WordPress .",
-        "phpcbf": "phpcbf --standard=WordPress ."
+        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml",
+        "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml"
     },
     "minimum-stability": "dev",
     "autoload": {
