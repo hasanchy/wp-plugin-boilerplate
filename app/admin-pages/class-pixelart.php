@@ -143,12 +143,12 @@ class PixelArt extends Base {
 			'ver'       => $this->assets_version,
 			'strategy'  => true,
 			'localize'  => array(
-				'dom_element_id'   		=> $this->unique_id,
-				'clientID'         		=> 'clientID',
-				'clientSecret'     		=> 'clientSecret',
-				'redirectUrl'      		=> 'redirectUrl',
-				'restEndpointSettings' 	=> home_url( '/wp-json' ) . '/wp-plugin-boilerplate/v1/settings',
-				'restNonce'        		=> wp_create_nonce( 'wp_rest' ),
+				'dom_element_id'       => $this->unique_id,
+				'clientID'             => 'clientID',
+				'clientSecret'         => 'clientSecret',
+				'redirectUrl'          => 'redirectUrl',
+				'restEndpointSettings' => home_url( '/wp-json' ) . '/wp-plugin-boilerplate/v1/settings',
+				'restNonce'            => wp_create_nonce( 'wp_rest' ),
 			),
 		);
 	}
