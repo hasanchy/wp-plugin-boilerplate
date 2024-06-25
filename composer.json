@@ -2,13 +2,28 @@
     "description": "A WordPress plugin that allows users to draw and display pixel art on their website.",
     "license": "GPL-3.0-or-later",
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "authors": [
         {
             "name": "Hasan Chowdhury"
         }
     ],
+    "require": {
+		"php": ">=7.4"
+	},
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=WordPress .",
+        "phpcbf": "phpcbf --standard=WordPress ."
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
