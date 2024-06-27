@@ -8,7 +8,7 @@
  * @author        WPPLUGBP (https://wpplugbp.com)
  * @package       WPPLUGBP\PluginTest
  *
- * @copyright (c) 2023, ThemeDyno (http://themedyno.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
 namespace WPPLUGBP\PluginTest\App\Admin_Pages;
@@ -17,7 +17,6 @@ namespace WPPLUGBP\PluginTest\App\Admin_Pages;
 defined( 'WPINC' ) || die;
 
 use WPPLUGBP\PluginTest\Base;
-use WPPLUGBP\PluginTest\Endpoints\V1\Auth_Confirm;
 
 class PixelArt extends Base {
 	/**
@@ -86,8 +85,6 @@ class PixelArt extends Base {
 
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
-		// Add body class to admin pages.
-		add_filter( 'admin_body_class', array( $this, 'admin_body_classes' ) );
 	}
 
 	public function register_admin_page() {
@@ -216,29 +213,6 @@ class PixelArt extends Base {
 	 * @return void
 	 */
 	protected function view() {
-		echo '<div id="' . esc_attr( $this->unique_id ) . '" class="sui-wrap"></div>';
-	}
-
-	/**
-	 * Adds the SUI class on markup body.
-	 *
-	 * @param string $classes
-	 *
-	 * @return string
-	 */
-	public function admin_body_classes( $classes = '' ) {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return $classes;
-		}
-
-		$current_screen = get_current_screen();
-
-		if ( empty( $current_screen->id ) || ! strpos( $current_screen->id, $this->page_slug ) ) {
-			return $classes;
-		}
-
-		$classes .= ' sui-' . str_replace( '.', '-', WPPLUGBP_PLUGINTEST_SUI_VERSION ) . ' ';
-
-		return $classes;
+		echo '<div id="' . esc_attr( $this->unique_id ) . '"></div>';
 	}
 }
