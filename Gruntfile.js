@@ -8,6 +8,7 @@ module.exports = function (grunt) {
 		'languages/**',
 		'uninstall.php',
 		'wp-plugin-boilerplate.php',
+		'composer.json',
 		'vendor/**',
 		'!**/*.map',
 	]

@@ -26,33 +26,33 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 }
 
 // Plugin version.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_VERSION' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_VERSION', '1.0.0' );
+if ( ! defined( 'WPPLUGBP_VERSION' ) ) {
+	define( 'WPPLUGBP_VERSION', '1.0.0' );
 }
 
-// Define WPPLUGBP_PLUGINTEST_PLUGIN_FILE.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_PLUGIN_FILE' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_PLUGIN_FILE', __FILE__ );
+// Define WPPLUGBP_PLUGIN_FILE.
+if ( ! defined( 'WPPLUGBP_PLUGIN_FILE' ) ) {
+	define( 'WPPLUGBP_PLUGIN_FILE', __FILE__ );
 }
 
 // Plugin directory.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_DIR' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'WPPLUGBP_DIR' ) ) {
+	define( 'WPPLUGBP_DIR', plugin_dir_path( __FILE__ ) );
 }
 
 // Languages directory.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_LANGUAGES_DIR' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_LANGUAGES_DIR', WPPLUGBP_PLUGINTEST_DIR . '/languages' );
+if ( ! defined( 'WPPLUGBP_LANGUAGES_DIR' ) ) {
+	define( 'WPPLUGBP_LANGUAGES_DIR', WPPLUGBP_DIR . '/languages' );
 }
 
 // Plugin url.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_URL' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'WPPLUGBP_URL' ) ) {
+	define( 'WPPLUGBP_URL', plugin_dir_url( __FILE__ ) );
 }
 
 // Assets url.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_ASSETS_URL' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_ASSETS_URL', WPPLUGBP_PLUGINTEST_URL . '/assets' );
+if ( ! defined( 'WPPLUGBP_ASSETS_URL' ) ) {
+	define( 'WPPLUGBP_ASSETS_URL', WPPLUGBP_URL . '/assets' );
 }
 
 

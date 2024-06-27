@@ -80,7 +80,7 @@ class PixelArt extends Base {
 	public function init() {
 		$this->page_title     = __( 'Pixel Art', 'wp-plugin-boilerplate' );
 		$this->creds          = get_option( $this->option_name, array() );
-		$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_PLUGINTEST_VERSION;
+		$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_VERSION;
 		$this->unique_id      = "wpplugbp_pixelart_main_wrap-{$this->assets_version}";
 
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
@@ -121,8 +121,8 @@ class PixelArt extends Base {
 		}
 
 		$handle       = 'wpplugbp_pixelart';
-		$src          = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/js/pixelartpage.min.js';
-		$style_src    = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/css/pixelartpage.min.css';
+		$src          = WPPLUGBP_ASSETS_URL . '/js/pixelartpage.min.js';
+		$style_src    = WPPLUGBP_ASSETS_URL . '/css/pixelartpage.min.css';
 		$dependencies = ! empty( $this->script_data( 'dependencies' ) )
 			? $this->script_data( 'dependencies' )
 			: array(
@@ -168,8 +168,8 @@ class PixelArt extends Base {
 	protected function raw_script_data(): array {
 		static $script_data = null;
 
-		if ( is_null( $script_data ) && file_exists( WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php' ) ) {
-			$script_data = include WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php';
+		if ( is_null( $script_data ) && file_exists( WPPLUGBP_DIR . 'assets/js/pixelartpage.min.asset.php' ) ) {
+			$script_data = include WPPLUGBP_DIR . 'assets/js/pixelartpage.min.asset.php';
 		}
 
 		return (array) $script_data;
@@ -202,7 +202,7 @@ class PixelArt extends Base {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}
 
-				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_PLUGINTEST_LANGUAGES_DIR );
+				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_LANGUAGES_DIR );
 			}
 		}
 	}
