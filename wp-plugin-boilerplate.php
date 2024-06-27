@@ -55,16 +55,11 @@ if ( ! defined( 'WPPLUGBP_PLUGINTEST_ASSETS_URL' ) ) {
 	define( 'WPPLUGBP_PLUGINTEST_ASSETS_URL', WPPLUGBP_PLUGINTEST_URL . '/assets' );
 }
 
-// Shared UI Version.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_SUI_VERSION' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_SUI_VERSION', '2.12.23' );
-}
-
 
 /**
  * WPPLUGBP_PluginTest class.
  */
-class WPPLUGBP_PluginTest {
+class WPPLUGBP_WPPluginBoilerplate {
 
 	/**
 	 * Holds the class instance.
@@ -100,7 +95,7 @@ class WPPLUGBP_PluginTest {
 			dirname( plugin_basename( __FILE__ ) ) . '/languages'
 		);
 
-		WPPLUGBP\PluginTest\Loader::instance();
+		WPPLUGBP\Core\Loader::instance();
 	}
 }
 
@@ -108,6 +103,6 @@ class WPPLUGBP_PluginTest {
 add_action(
 	'plugins_loaded',
 	function () {
-		WPPLUGBP_PluginTest::get_instance()->load();
+		WPPLUGBP_WPPluginBoilerplate::get_instance()->load();
 	}
 );

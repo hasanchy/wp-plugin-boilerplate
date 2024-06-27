@@ -26,11 +26,6 @@
     },
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": {
-            "WPPLUGBP\\": [
-                "inc/"
-            ]
-        },
         "classmap": ["core/", "app/"]
     },
     "autoload-dev": {

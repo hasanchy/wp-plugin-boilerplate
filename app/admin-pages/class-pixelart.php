@@ -6,17 +6,17 @@
  * @since         1.0.0
  *
  * @author        WPPLUGBP (https://wpplugbp.com)
- * @package       WPPLUGBP\PluginTest
+ * @package       WPPLUGBP\App
  *
  * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest\App\Admin_Pages;
+namespace WPPLUGBP\App\Admin_Pages;
 
 // Abort if called directly.
 defined( 'WPINC' ) || die;
 
-use WPPLUGBP\PluginTest\Base;
+use WPPLUGBP\Core\Base;
 
 class PixelArt extends Base {
 	/**

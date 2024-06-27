@@ -11,9 +11,8 @@
  * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest;
+namespace WPPLUGBP\Core;
 
-use WPPLUGBP\PluginTest\Base;
 use WP_REST_Response;
 use WP_REST_Controller;
 
