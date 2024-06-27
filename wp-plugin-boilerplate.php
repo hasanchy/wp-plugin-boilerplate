@@ -17,39 +17,13 @@
 
 defined( 'ABSPATH' ) or die( 'No direct access allowed!' ); // Avoid direct file request
 
-/**
- * Plugin constants. This file is procedural coding style for initialization of
- * the plugin core and definition of plugin configuration.
- */
-if ( defined( 'WPPLUGBP_PATH' ) ) {
-	require_once __DIR__ . '/inc/base/others/fallback-already.php';
-	return;
-}
-
 define( 'WPPLUGBP_FILE', __FILE__ );
 define( 'WPPLUGBP_PATH', dirname( WPPLUGBP_FILE ) );
-define( 'WPPLUGBP_SLUG', basename( WPPLUGBP_PATH ) );
-define( 'WPPLUGBP_INC', WPPLUGBP_PATH . '/inc/' );
-define( 'WPPLUGBP_MIN_PHP', '7.2.0' ); // Minimum of PHP 7.2 required for autoloading and namespacing
-define( 'WPPLUGBP_MIN_WP', '5.2.0' ); // Minimum of WordPress 5.0 required
-define( 'WPPLUGBP_NS', 'WPPLUGBP' );
-
-// Check PHP Version and print notice if minimum not reached, otherwise start the plugin core
-// require_once WPPLUGBP_INC .
-//     'base/others/' .
-//     (version_compare(phpversion(), WPPLUGBP_MIN_PHP, '>=') ? 'start.php' : 'fallback-php-version.php');
-
-
-
-
-
-
 
 // Support for site-level autoloading.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
-
 
 // Plugin version.
 if ( ! defined( 'WPPLUGBP_PLUGINTEST_VERSION' ) ) {
@@ -64,6 +38,11 @@ if ( ! defined( 'WPPLUGBP_PLUGINTEST_PLUGIN_FILE' ) ) {
 // Plugin directory.
 if ( ! defined( 'WPPLUGBP_PLUGINTEST_DIR' ) ) {
 	define( 'WPPLUGBP_PLUGINTEST_DIR', plugin_dir_path( __FILE__ ) );
+}
+
+// Languages directory.
+if ( ! defined( 'WPPLUGBP_PLUGINTEST_LANGUAGES_DIR' ) ) {
+	define( 'WPPLUGBP_PLUGINTEST_LANGUAGES_DIR', WPPLUGBP_PLUGINTEST_DIR . '/languages' );
 }
 
 // Plugin url.

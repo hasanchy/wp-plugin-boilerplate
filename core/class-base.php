@@ -9,7 +9,7 @@
  * @author  WPPLUGBP (https://wpplugbp.com)
  * @package WPPLUGBP_PluginTest
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2023, ThemeDyno (http://themedyno.com)
  */
 
 namespace WPPLUGBP\PluginTest;

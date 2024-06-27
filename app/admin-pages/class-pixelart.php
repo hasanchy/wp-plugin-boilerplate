@@ -8,7 +8,7 @@
  * @author        WPPLUGBP (https://wpplugbp.com)
  * @package       WPPLUGBP\PluginTest
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2023, ThemeDyno (http://themedyno.com)
  */
 
 namespace WPPLUGBP\PluginTest\App\Admin_Pages;
@@ -205,7 +205,7 @@ class PixelArt extends Base {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}
 
-				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_PATH . '/languages' );
+				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_PLUGINTEST_LANGUAGES_DIR );
 			}
 		}
 	}
