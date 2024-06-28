@@ -8,12 +8,11 @@
  * @author        WPPLUGBP (https://wpplugbp.com)
  * @package       WPPLUGBP\PluginTest
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest;
+namespace WPPLUGBP\Core;
 
-use WPPLUGBP\PluginTest\Base;
 use WP_REST_Response;
 use WP_REST_Controller;
 

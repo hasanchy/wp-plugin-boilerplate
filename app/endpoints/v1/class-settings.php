@@ -8,16 +8,15 @@
  * @author        WPPLUGBP (https://wpplugbp.com)
  * @package       WPPLUGBP\PluginTest
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest\Endpoints\V1;
+namespace WPPLUGBP\App\Endpoints\V1;
 
 // Abort if called directly.
 defined( 'WPINC' ) || die;
 
-use WPPLUGBP\PluginTest\Endpoint;
-use WP_REST_Server;
+use WPPLUGBP\Core\Endpoint;
 
 class Settings extends Endpoint {
 	/**

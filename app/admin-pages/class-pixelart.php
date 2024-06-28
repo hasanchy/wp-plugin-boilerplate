@@ -6,18 +6,17 @@
  * @since         1.0.0
  *
  * @author        WPPLUGBP (https://wpplugbp.com)
- * @package       WPPLUGBP\PluginTest
+ * @package       WPPLUGBP\App
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest\App\Admin_Pages;
+namespace WPPLUGBP\App\Admin_Pages;
 
 // Abort if called directly.
 defined( 'WPINC' ) || die;
 
-use WPPLUGBP\PluginTest\Base;
-use WPPLUGBP\PluginTest\Endpoints\V1\Auth_Confirm;
+use WPPLUGBP\Core\Base;
 
 class PixelArt extends Base {
 	/**
@@ -81,13 +80,11 @@ class PixelArt extends Base {
 	public function init() {
 		$this->page_title     = __( 'Pixel Art', 'wp-plugin-boilerplate' );
 		$this->creds          = get_option( $this->option_name, array() );
-		$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_PLUGINTEST_VERSION;
+		$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_VERSION;
 		$this->unique_id      = "wpplugbp_pixelart_main_wrap-{$this->assets_version}";
 
 		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
-		// Add body class to admin pages.
-		add_filter( 'admin_body_class', array( $this, 'admin_body_classes' ) );
 	}
 
 	public function register_admin_page() {
@@ -124,8 +121,8 @@ class PixelArt extends Base {
 		}
 
 		$handle       = 'wpplugbp_pixelart';
-		$src          = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/js/pixelartpage.min.js';
-		$style_src    = WPPLUGBP_PLUGINTEST_ASSETS_URL . '/css/pixelartpage.min.css';
+		$src          = WPPLUGBP_ASSETS_URL . '/js/pixelartpage.min.js';
+		$style_src    = WPPLUGBP_ASSETS_URL . '/css/pixelartpage.min.css';
 		$dependencies = ! empty( $this->script_data( 'dependencies' ) )
 			? $this->script_data( 'dependencies' )
 			: array(
@@ -171,8 +168,8 @@ class PixelArt extends Base {
 	protected function raw_script_data(): array {
 		static $script_data = null;
 
-		if ( is_null( $script_data ) && file_exists( WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php' ) ) {
-			$script_data = include WPPLUGBP_PLUGINTEST_DIR . 'assets/js/pixelartpage.min.asset.php';
+		if ( is_null( $script_data ) && file_exists( WPPLUGBP_DIR . 'assets/js/pixelartpage.min.asset.php' ) ) {
+			$script_data = include WPPLUGBP_DIR . 'assets/js/pixelartpage.min.asset.php';
 		}
 
 		return (array) $script_data;
@@ -205,7 +202,7 @@ class PixelArt extends Base {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}
 
-				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_PATH . '/languages' );
+				wp_set_script_translations( $handle, 'wp-plugin-boilerplate', WPPLUGBP_LANGUAGES_DIR );
 			}
 		}
 	}
@@ -216,29 +213,6 @@ class PixelArt extends Base {
 	 * @return void
 	 */
 	protected function view() {
-		echo '<div id="' . esc_attr( $this->unique_id ) . '" class="sui-wrap"></div>';
-	}
-
-	/**
-	 * Adds the SUI class on markup body.
-	 *
-	 * @param string $classes
-	 *
-	 * @return string
-	 */
-	public function admin_body_classes( $classes = '' ) {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return $classes;
-		}
-
-		$current_screen = get_current_screen();
-
-		if ( empty( $current_screen->id ) || ! strpos( $current_screen->id, $this->page_slug ) ) {
-			return $classes;
-		}
-
-		$classes .= ' sui-' . str_replace( '.', '-', WPPLUGBP_PLUGINTEST_SUI_VERSION ) . ' ';
-
-		return $classes;
+		echo '<div id="' . esc_attr( $this->unique_id ) . '"></div>';
 	}
 }

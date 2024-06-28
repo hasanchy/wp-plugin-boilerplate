@@ -6,14 +6,15 @@
  * @since   1.0.0
  *
  * @author  WPPLUGBP (https://wpplugbp.com)
- * @package WPPLUGBP_PluginTest
+ * @package WPPLUGBP_Core
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest;
+namespace WPPLUGBP\Core;
 
-use WPPLUGBP\PluginTest\Base;
+use WPPLUGBP\Core\Base;
+use WPPLUGBP\App;
 
 // If this file is called directly, abort.
 defined( 'WPINC' ) || die;
@@ -93,6 +94,6 @@ final class Loader extends Base {
 	 */
 	private function init() {
 		App\Admin_Pages\PixelArt::instance()->init();
-		Endpoints\V1\Settings::instance();
+		App\Endpoints\V1\Settings::instance();
 	}
 }

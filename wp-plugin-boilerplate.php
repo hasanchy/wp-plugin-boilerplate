@@ -17,75 +17,49 @@
 
 defined( 'ABSPATH' ) or die( 'No direct access allowed!' ); // Avoid direct file request
 
-/**
- * Plugin constants. This file is procedural coding style for initialization of
- * the plugin core and definition of plugin configuration.
- */
-if ( defined( 'WPPLUGBP_PATH' ) ) {
-	require_once __DIR__ . '/inc/base/others/fallback-already.php';
-	return;
-}
-
 define( 'WPPLUGBP_FILE', __FILE__ );
 define( 'WPPLUGBP_PATH', dirname( WPPLUGBP_FILE ) );
-define( 'WPPLUGBP_SLUG', basename( WPPLUGBP_PATH ) );
-define( 'WPPLUGBP_INC', WPPLUGBP_PATH . '/inc/' );
-define( 'WPPLUGBP_MIN_PHP', '7.2.0' ); // Minimum of PHP 7.2 required for autoloading and namespacing
-define( 'WPPLUGBP_MIN_WP', '5.2.0' ); // Minimum of WordPress 5.0 required
-define( 'WPPLUGBP_NS', 'WPPLUGBP' );
-
-// Check PHP Version and print notice if minimum not reached, otherwise start the plugin core
-// require_once WPPLUGBP_INC .
-//     'base/others/' .
-//     (version_compare(phpversion(), WPPLUGBP_MIN_PHP, '>=') ? 'start.php' : 'fallback-php-version.php');
-
-
-
-
-
-
 
 // Support for site-level autoloading.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
 
-
 // Plugin version.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_VERSION' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_VERSION', '1.0.0' );
+if ( ! defined( 'WPPLUGBP_VERSION' ) ) {
+	define( 'WPPLUGBP_VERSION', '1.0.0' );
 }
 
-// Define WPPLUGBP_PLUGINTEST_PLUGIN_FILE.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_PLUGIN_FILE' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_PLUGIN_FILE', __FILE__ );
+// Define WPPLUGBP_PLUGIN_FILE.
+if ( ! defined( 'WPPLUGBP_PLUGIN_FILE' ) ) {
+	define( 'WPPLUGBP_PLUGIN_FILE', __FILE__ );
 }
 
 // Plugin directory.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_DIR' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'WPPLUGBP_DIR' ) ) {
+	define( 'WPPLUGBP_DIR', plugin_dir_path( __FILE__ ) );
+}
+
+// Languages directory.
+if ( ! defined( 'WPPLUGBP_LANGUAGES_DIR' ) ) {
+	define( 'WPPLUGBP_LANGUAGES_DIR', WPPLUGBP_DIR . '/languages' );
 }
 
 // Plugin url.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_URL' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'WPPLUGBP_URL' ) ) {
+	define( 'WPPLUGBP_URL', plugin_dir_url( __FILE__ ) );
 }
 
 // Assets url.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_ASSETS_URL' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_ASSETS_URL', WPPLUGBP_PLUGINTEST_URL . '/assets' );
-}
-
-// Shared UI Version.
-if ( ! defined( 'WPPLUGBP_PLUGINTEST_SUI_VERSION' ) ) {
-	define( 'WPPLUGBP_PLUGINTEST_SUI_VERSION', '2.12.23' );
+if ( ! defined( 'WPPLUGBP_ASSETS_URL' ) ) {
+	define( 'WPPLUGBP_ASSETS_URL', WPPLUGBP_URL . '/assets' );
 }
 
 
 /**
  * WPPLUGBP_PluginTest class.
  */
-class WPPLUGBP_PluginTest {
+class WPPLUGBP_WPPluginBoilerplate {
 
 	/**
 	 * Holds the class instance.
@@ -121,7 +95,7 @@ class WPPLUGBP_PluginTest {
 			dirname( plugin_basename( __FILE__ ) ) . '/languages'
 		);
 
-		WPPLUGBP\PluginTest\Loader::instance();
+		WPPLUGBP\Core\Loader::instance();
 	}
 }
 
@@ -129,6 +103,6 @@ class WPPLUGBP_PluginTest {
 add_action(
 	'plugins_loaded',
 	function () {
-		WPPLUGBP_PluginTest::get_instance()->load();
+		WPPLUGBP_WPPluginBoilerplate::get_instance()->load();
 	}
 );

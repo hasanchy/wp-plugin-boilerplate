@@ -6,12 +6,12 @@
  * @since   1.0.0
  *
  * @author  WPPLUGBP (https://wpplugbp.com)
- * @package WPPLUGBP_PluginTest
+ * @package WPPLUGBP_Core
  *
- * @copyright (c) 2023, Incsub (http://incsub.com)
+ * @copyright (c) 2024, ThemeDyno (http://themedyno.com)
  */
 
-namespace WPPLUGBP\PluginTest;
+namespace WPPLUGBP\Core;
 
 // Abort if called directly.
 defined( 'WPINC' ) || die;
@@ -19,7 +19,7 @@ defined( 'WPINC' ) || die;
 /**
  * Class Singleton
  *
- * @package WPPLUGBP\PluginTest
+ * @package WPPLUGBP\Core
  */
 abstract class Singleton {
 
