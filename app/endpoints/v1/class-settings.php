@@ -60,7 +60,7 @@ class Settings extends Endpoint {
 					'args'                => array(
 						'data' => array(
 							'required'    => true,
-							'description' => __( 'The client ID from Google API project.', 'wpmudev-plugin-test' ),
+							'description' => __( 'The client ID from Google API project.', 'wp-plugin-boilerplate' ),
 							'type'        => 'object',
 						),
 					),
@@ -92,7 +92,7 @@ class Settings extends Endpoint {
 		$wpplugbp_pixel_data = get_option( 'wpplugbp_pixel_data' );
 
 		$response_data = array(
-			'wpplugbp_pixel_data' => ( $wpplugbp_pixel_data ) ? unserialize( $wpplugbp_pixel_data ) : null,
+			'wpplugbp_pixel_data' => ( $wpplugbp_pixel_data ) ? json_decode( $wpplugbp_pixel_data ) : null,
 		);
 
 		return new \WP_REST_Response( $response_data, 200 );
@@ -110,7 +110,7 @@ class Settings extends Endpoint {
 			return new WP_REST_Response( 'Invalid nonce', 403 );
 		}
 
-		$wpplugbp_pixel_data = serialize( $request['data'] );
+		$wpplugbp_pixel_data = wp_json_encode( $request['data'] );
 		update_option( 'wpplugbp_pixel_data', $wpplugbp_pixel_data );
 
 		return new \WP_REST_Response( $response_data, 200 );

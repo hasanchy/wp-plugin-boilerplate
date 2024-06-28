@@ -197,7 +197,6 @@ class PixelArt extends Base {
 
 				wp_enqueue_script( $handle );
 
-				
 				if ( ! empty( $page_script['style_src'] ) ) {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}
