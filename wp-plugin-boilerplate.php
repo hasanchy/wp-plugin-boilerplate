@@ -7,7 +7,7 @@
  * Description:     A WordPress plugin that allows users to draw and display pixel art on their website.
  * Author:          Hasan Chowdhury
  * Author URI:      https://github.com/hasanchy
- * Version:         1.0.0
+ * Version:         1.0.1
  * Text Domain:     wp-plugin-boilerplate
  * Domain Path:     /languages
  *
@@ -15,7 +15,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-defined( 'ABSPATH' ) or die( 'No direct access allowed!' ); // Avoid direct file request
+defined( 'ABSPATH' ) || die( 'No direct access allowed!' ); // Avoid direct file request
 
 define( 'WPPLUGBP_FILE', __FILE__ );
 define( 'WPPLUGBP_PATH', dirname( WPPLUGBP_FILE ) );

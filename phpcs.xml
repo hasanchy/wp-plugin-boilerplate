@@ -6,6 +6,8 @@
 	<file>.</file>
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<exclude-pattern>/node_modules/</exclude-pattern>
+	<exclude-pattern>/languages/</exclude-pattern>
+	<exclude-pattern>/build/</exclude-pattern>
 
 	 <!-- Tests can do skip formatting, to achieve whatever needed to be a good tests. -->
     <exclude-pattern>./tests/*</exclude-pattern>
@@ -43,13 +45,13 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="wpmudev_plugin_test,WPMUDEV"/>
+			<property name="prefixes" type="array" value="WPPLUGBP"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="wpmudev-plugin-test"/>
+			<property name="text_domain" type="array" value="wp-plugin-boilerplate"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">

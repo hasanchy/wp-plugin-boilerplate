@@ -78,13 +78,15 @@ class PixelArt extends Base {
 	 *
 	 */
 	public function init() {
-		$this->page_title     = __( 'Pixel Art', 'wp-plugin-boilerplate' );
-		$this->creds          = get_option( $this->option_name, array() );
-		$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_VERSION;
-		$this->unique_id      = "wpplugbp_pixelart_main_wrap-{$this->assets_version}";
+		if ( is_admin() ) {
+			$this->page_title     = __( 'Pixel Art', 'wp-plugin-boilerplate' );
+			$this->creds          = get_option( $this->option_name, array() );
+			$this->assets_version = ! empty( $this->script_data( 'version' ) ) ? $this->script_data( 'version' ) : WPPLUGBP_VERSION;
+			$this->unique_id      = "wpplugbp_pixelart_main_wrap-{$this->assets_version}";
 
-		add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+			add_action( 'admin_menu', array( $this, 'register_admin_page' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		}
 	}
 
 	public function register_admin_page() {
@@ -197,7 +199,6 @@ class PixelArt extends Base {
 
 				wp_enqueue_script( $handle );
 
-				
 				if ( ! empty( $page_script['style_src'] ) ) {
 					wp_enqueue_style( $handle, $page_script['style_src'], array(), $this->assets_version );
 				}

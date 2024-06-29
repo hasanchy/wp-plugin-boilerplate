@@ -1,6 +1,6 @@
 {
 	"name": "wp-plugin-boilerplate",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A WordPress plugin that allows users to draw and display pixel art on their website.",
 	"main": "index.js",
 	"scripts": {

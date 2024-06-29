@@ -60,7 +60,7 @@ class Settings extends Endpoint {
 					'args'                => array(
 						'data' => array(
 							'required'    => true,
-							'description' => __( 'The client ID from Google API project.', 'wpmudev-plugin-test' ),
+							'description' => __( 'The client ID from Google API project.', 'wp-plugin-boilerplate' ),
 							'type'        => 'object',
 						),
 					),
@@ -91,8 +91,18 @@ class Settings extends Endpoint {
 
 		$wpplugbp_pixel_data = get_option( 'wpplugbp_pixel_data' );
 
+		// Decode the JSON data
+		$decoded_data = ( $wpplugbp_pixel_data ) ? json_decode( $wpplugbp_pixel_data, true ) : null;
+
+		// Escape each item in the decoded data
+		if ( is_array( $decoded_data ) ) {
+			$escaped_data = array_map( 'esc_html', $decoded_data );
+		} else {
+			$escaped_data = null;
+		}
+
 		$response_data = array(
-			'wpplugbp_pixel_data' => ( $wpplugbp_pixel_data ) ? unserialize( $wpplugbp_pixel_data ) : null,
+			'wpplugbp_pixel_data' => $escaped_data,
 		);
 
 		return new \WP_REST_Response( $response_data, 200 );
@@ -110,9 +120,14 @@ class Settings extends Endpoint {
 			return new WP_REST_Response( 'Invalid nonce', 403 );
 		}
 
-		$wpplugbp_pixel_data = serialize( $request['data'] );
+		// Validate and sanitize the input data
+		$data           = isset( $request['data'] ) ? $request['data'] : array();
+		$sanitized_data = array_map( 'sanitize_text_field', $data ); // Sanitize each item in the data array
+
+		// Encode the sanitized data to JSON format
+		$wpplugbp_pixel_data = wp_json_encode( $sanitized_data );
 		update_option( 'wpplugbp_pixel_data', $wpplugbp_pixel_data );
 
-		return new \WP_REST_Response( $response_data, 200 );
+		return new \WP_REST_Response( array( 'message' => 'Settings saved' ), 200 );
 	}
 }
