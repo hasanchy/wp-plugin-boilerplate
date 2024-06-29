@@ -33,6 +33,7 @@ module.exports = function (grunt) {
 			},
 			assets: ['assets/css/**', 'assets/js/**'],
 			folder_v2: ['build/**'],
+			unzipped_folder: ['build/<%= pkg.name %>/'],
 		},
 
 		checktextdomain: {
@@ -103,6 +104,7 @@ module.exports = function (grunt) {
 		'checktextdomain',
 		'copy:pro',
 		'compress:pro',
+		'clean:unzipped_folder'
 	])
 
 	grunt.registerTask('preBuildClean', [
